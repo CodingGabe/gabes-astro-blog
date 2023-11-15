@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import {getCollection, CollectionEntry} from "astro:content";
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = async () => {
+    const posts = await getCollection("posts");
+    const paths = posts.map(post => {
+        return {
+            params: {
+                slug: post.slug
+            },
+            props: {post}
+        }
+    })
+    return paths;
+}
+
+type Props = {
+    post: CollectionEntry<"posts">
+}
+
+const {post} = Astro.props;
+const {Content} = await post.render();
+export const prerender = true;
+---
+
+<Layout title={post.data.title}>
+    <main class="py-20 px-24 max-w-7xl mx-auto w-full max-sm-24">
+		<h1 class="text-7xl text-white text-center">{post.data.title}</h1>
+        <Image 
+            src={post.data.image}
+            width={860}
+            height={860 / 1.5}
+            alt={post.data.title}
+            class="rounded shadow-xl aspect-thumbnail object-cover my-24 block mx-auto"
+        />
+        <div class="prose prose-xl prose-zinc dark:prose-invert overflow-visible relative mx-auto">
+            <Content />
+        </div>
+	</main>
+</Layout>
