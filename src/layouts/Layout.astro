@@ -3,10 +3,6 @@ import Header from '../components/Header.astro';
 import Footer from '../partials/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 import '../styles/utils.css';
-import {
-  BackgroundImage,
-  ImageSupportDetection,
-} from "astro-imagetools/components";
 
 interface Props {
 	title: string;
@@ -32,7 +28,6 @@ const footerLinks = [
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
-		<ImageSupportDetection />
 	</head>
 	<body>
 		<Header />
