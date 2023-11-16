@@ -29,7 +29,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())]; // map th
         ))}
     </div>
     <a href={`/blog/${post.slug}`}>
-        <h2 class="text-zinc-300 text-2xl mb-4">{post.data.title}</h2>
+        <h2 class="text-zinc-300 text-2xl mb-4" transition:name={post.data.title}>{post.data.title}</h2>
     </a>
     <p class="text-zinc-300 text-lg line-clamp-2 mb-4">
         {post.data.excerpt}
@@ -41,7 +41,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags).flat())]; // map th
             </div>
             <span class="text-sm">Gabe Amaya</span>
             <span class="text-xs text-gray-300 dark:text-gray-600"> •</span>
-            <time class="text-xs">{post.data.date}</time>
+            <time class="text-xs" transition:name={post.data.date}>{post.data.date}</time>
         </div>
     </div>
 </article>
