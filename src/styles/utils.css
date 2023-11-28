@@ -81,13 +81,13 @@ code {
 }
 @font-face {
     font-family: "Varela";
-    src: url("./public/fonts/Varela-Reg.ttf");
+    src: url("./public/static/fonts/valera.ttf");
     font-style: normal;
     font-weight: normal;
 }
 @font-face {
     font-family: "Black";
-    src: url("./public/fonts/mplus-black.ttf");
+    src: url("./public/static/fonts/black.ttf");
     font-style: normal;
     font-weight: bold;
 }
